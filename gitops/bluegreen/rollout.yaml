@@ -1,7 +1,7 @@
-kind: Deployment
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
-  name: demo-app-deployment
+  name: demo-app-rollout
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: quay.io/openshiftdemos/rollouts-demo:green
+          image: 'quay.io/openshiftdemos/rollouts-demo:blue'
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -22,3 +22,8 @@ spec:
             limits:
               cpu: 500m
               memory: 128Mi
+  strategy:
+    blueGreen:
+      activeService: active
+      previewService: preview
+      autoPromotionEnabled: false

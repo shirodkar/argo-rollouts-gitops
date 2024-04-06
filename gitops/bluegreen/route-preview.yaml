@@ -1,0 +1,10 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: preview-route
+spec:
+  to:
+    kind: Service
+    name: preview-service
+  port:
+    targetPort: 8080-tcp
