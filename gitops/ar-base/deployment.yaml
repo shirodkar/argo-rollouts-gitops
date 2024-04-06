@@ -19,6 +19,9 @@ spec:
             - containerPort: 8080
               protocol: TCP
           resources:
+            limits:
+              cpu: 500m
+              memory: 128Mi
   strategy:
     type: RollingUpdate
     rollingUpdate:
