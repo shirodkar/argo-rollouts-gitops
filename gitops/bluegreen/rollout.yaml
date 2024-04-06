@@ -24,6 +24,6 @@ spec:
               memory: 128Mi
   strategy:
     blueGreen:
-      activeService: active
-      previewService: preview
+      activeService: active-service
+      previewService: preview-service
       autoPromotionEnabled: false
