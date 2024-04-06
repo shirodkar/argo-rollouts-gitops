@@ -23,7 +23,4 @@ spec:
               cpu: 500m
               memory: 128Mi
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 25%
-      maxSurge: 25%
+    type: Recreate
