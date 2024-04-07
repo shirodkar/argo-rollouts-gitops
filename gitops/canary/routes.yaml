@@ -1,0 +1,35 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: stable-route
+spec:
+  to:
+    kind: Service
+    name: stable-service
+  port:
+    targetPort: 8080-tcp
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: canary-route
+spec:
+  to:
+    kind: Service
+    name: canary-service
+  port:
+    targetPort: 8080-tcp
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: all-route
+spec:
+  to:
+    kind: Service
+    name: all-service
+  port:
+    targetPort: 8080-tcp
+  annotations:
+    haproxy.router.openshift.io/disable_cookies: 'true'
+    haproxy.router.openshift.io/balance: roundrobin

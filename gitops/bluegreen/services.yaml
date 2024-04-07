@@ -1,0 +1,27 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: active-service
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+  selector:
+    app: demo-app
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: preview-service
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+  selector:
+    app: demo-app

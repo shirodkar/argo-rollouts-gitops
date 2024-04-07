@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: demo-app-rollout
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: demo-app
@@ -23,7 +23,15 @@ spec:
               cpu: 500m
               memory: 128Mi
   strategy:
-    blueGreen:
-      activeService: active-service
-      previewService: preview-service
-      autoPromotionEnabled: false
+    canary:
+      canaryService: canary-service
+      stableService: stable-service
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 40
+      - pause: {duration: 10s}
+      - setWeight: 60
+      - pause: {duration: 10s}
+      - setWeight: 80
+      - pause: {duration: 10s}
