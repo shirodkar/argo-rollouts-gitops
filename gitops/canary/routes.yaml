@@ -24,13 +24,13 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: all-route
+  annotations:
+    haproxy.router.openshift.io/disable_cookies: 'true'
+    haproxy.router.openshift.io/balance: roundrobin
 spec:
   to:
     kind: Service
     name: all-service
   port:
     targetPort: 8080-tcp
-  annotations:
-    haproxy.router.openshift.io/disable_cookies: 'true'
-    haproxy.router.openshift.io/balance: roundrobin
-    test: test
+    
