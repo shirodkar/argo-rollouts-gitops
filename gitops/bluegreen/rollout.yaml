@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: 'quay.io/openshiftdemos/rollouts-demo:yellow'
+          image: 'quay.io/openshiftdemos/rollouts-demo:blue'
           ports:
             - containerPort: 8080
               protocol: TCP
