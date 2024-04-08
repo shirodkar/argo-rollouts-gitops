@@ -20,7 +20,7 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 100m
-              memory: 64Mi
+              cpu: 50m
+              memory: 32Mi
   strategy:
     type: Recreate
