@@ -20,8 +20,8 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 500m
-              memory: 128Mi
+              cpu: 50m
+              memory: 32Mi
   strategy:
     blueGreen:
       activeService: active-service

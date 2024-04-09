@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: demo-app-rollout
 spec:
-  replicas: 5
+  replicas: 10
   selector:
     matchLabels:
       app: demo-app
@@ -20,8 +20,8 @@ spec:
               protocol: TCP
           resources:
             limits:
-              cpu: 500m
-              memory: 128Mi
+              cpu: 50m
+              memory: 32Mi
   strategy:
     canary:
       canaryService: canary-service
