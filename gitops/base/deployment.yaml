@@ -23,4 +23,4 @@ spec:
               cpu: 50m
               memory: 32Mi
   strategy:
-    type: Recreate
+    type: RollingUpdate
